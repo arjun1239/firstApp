@@ -1,0 +1,79 @@
+<!-- <h2>Edit Employee</h2>
+
+<form>
+  <mat-form-field>
+    <input matInput [(ngModel)]="emp.firstName" name="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="emp.lastName" name="email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="emp.email" name="department">
+  </mat-form-field>
+
+  <br><br>
+
+  <button mat-raised-button color="primary" (click)="update()">Update</button>
+</form> -->
+
+
+
+
+<form [formGroup]="form" (ngSubmit)="update()">
+
+  <h3>Edit Employee</h3>
+
+  <!-- ID (readonly) -->
+  <mat-form-field appearance="outline">
+    <mat-label>ID</mat-label>
+    <input matInput formControlName="id" readonly>
+  </mat-form-field> 
+
+  <br><br>
+
+  <!-- First Name -->
+  <mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
+
+  <br><br>
+
+  <!-- Last Name -->
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+
+  <br><br>
+
+  <!-- Email -->
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <br><br>
+
+  <!-- Buttons -->
+  <button mat-raised-button color="primary" type="submit">
+    Update
+  </button>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+

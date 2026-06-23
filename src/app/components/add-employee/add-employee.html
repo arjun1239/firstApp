@@ -1,0 +1,71 @@
+<!-- <p>add-employee works!</p>
+
+<h2 style="text-align: center;">Add Employee</h2>
+
+<form>
+  <mat-form-field>
+    <input matInput placeholder="First Name" [(ngModel)]="form.firstName" name="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Last Name" [(ngModel)]="employee.lastName" name="email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="E mail" [(ngModel)]="employee.email" name="department">
+  </mat-form-field>
+
+  <br><br>
+
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</form> -->
+
+
+<form [formGroup]="form" (ngSubmit)="save()">
+
+  <h3>Add Employee</h3>
+
+  <!-- ID -->
+   <!-- <mat-form-field appearance="outline">
+    <mat-label>ID</mat-label>
+    <input type="text" matInput formControlName="id">
+  </mat-form-field>
+
+  <br><br>  -->
+
+
+
+  <!-- First Name -->
+  <mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
+
+  <br><br>
+
+  <!-- Last Name -->
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+
+  <br><br>
+
+  <!-- Email -->
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <br><br>
+
+  <!-- Buttons -->
+  <button mat-raised-button color="primary" type="submit">
+    Save
+  </button>
+
+  <!-- <button mat-button type="button" (click)="router.navigate(['/'])">
+    Cancel
+  </button> -->
+
+</form>

@@ -1,0 +1,129 @@
+<div class="container">
+  <!-- <h1>Employees dashboard</h1> -->
+
+  <h1 style="text-align: center; color: maroon;">
+  Employees Dashboard
+</h1>
+
+
+
+<!-- <mat-toolbar>
+  <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+ 
+<div style="margin:20px; text-align: right;">
+  <button mat-raised-button color="primary" (click)="add()">Add Employee</button>
+</div>  
+
+</mat-toolbar> -->
+
+
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>My App</span>
+
+  <span class="spacer"></span>
+
+  <div class="center-btn">
+    <button mat-raised-button color="primary" (click)="add()">
+      Add Employee
+    </button>
+  </div>
+<!-- 
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu">
+  <mat-icon>menu</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+
+  <button mat-menu-item routerLink="/employees">
+    <mat-icon>list</mat-icon>
+    <span>View Employees</span>
+  </button>
+
+  <button mat-menu-item routerLink="/add">
+    <mat-icon>person_add</mat-icon>
+    <span>Add Employee</span>
+  </button>
+
+  <button mat-menu-item routerLink="/update">
+    <mat-icon>edit</mat-icon>
+    <span>Update Employee</span>
+  </button>
+
+  <button mat-menu-item routerLink="/delete">
+    <mat-icon>delete</mat-icon>
+    <span>Delete Employee</span>
+  </button>
+
+</mat-menu> -->
+
+</mat-toolbar>
+
+
+
+  <!-- <button mat-raised-button color="primary" (click)="add()" >Add Employee</button> -->
+  
+  <!-- <div class="left-align">
+    <button mat-raised-button color="primary" (click)="add()">Add Employee</button>
+  </div> -->
+
+<!-- <div style="margin:20px; text-align: center;">
+  <button mat-raised-button color="primary" (click)="add()">Add Employee</button>
+</div>   -->
+  
+
+
+
+  <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> E mail </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let emp">
+        <!-- <button mat-button (click)="view(emp.id)">View</button> -->
+        <button mat-button color="accent" (click)="edit(emp.id)">Edit</button>
+        <button mat-button color="warn" (click)="delete(emp.id)">Delete</button>
+        <button mat-button color="primary" (click)="view(emp.id)">View</button>
+      </td>
+    </ng-container>
+
+    // changed in below lines , instead of displayedColumns array
+    <tr mat-header-row *matHeaderRowDef="['id','firstName','lastName','email','actions']"></tr>
+
+    <!-- what the below line is doing -->
+    <tr mat-row *matRowDef="let row; columns: ['id','firstName','lastName','email','actions'];"></tr>
+  </table>
+</div>
