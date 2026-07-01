@@ -8,6 +8,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { EmployeeService } from '../../services/employees';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
+import { Digit } from '../../services/digit';
 // import { EmployeeService } from '../../services/employee';
 
 @Component({
@@ -25,9 +26,14 @@ import { MatMenu, MatMenuModule } from '@angular/material/menu';
 export class EmployeeList implements OnInit {
 
   service = inject(EmployeeService); 
+  digitService = inject(Digit); //added for digit prediction 
   // employees: Employee[] = [];cls
   datasource: MatTableDataSource<any>;
   router = inject(Router);
+
+  selectedFile!: File;
+prediction: number | null = null;
+loading = false;
 
   constructor() {
     this.datasource = new MatTableDataSource();  // read this again explanation
@@ -62,4 +68,36 @@ export class EmployeeList implements OnInit {
   view(id: number) {
     this.router.navigate(['/view', id]);
   }
+
+
+  // added below code for digit prediction 
+
+  onFileSelected(event: any) {
+  this.selectedFile = event.target.files[0];
+}
+
+predictDigit() {
+  if (!this.selectedFile) {
+    alert("Please select an image");
+    return;
+  }
+
+  this.loading = true;
+
+  this.digitService.predictDigit(this.selectedFile)
+    .subscribe({
+      next: (res) => {
+        this.prediction = res.digit;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error(err);
+        this.loading = false;
+      }
+    });
+}
+// digit prediction end here 
+
+
+
 }

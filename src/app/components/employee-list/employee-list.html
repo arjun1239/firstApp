@@ -63,6 +63,25 @@
 
 </mat-menu> -->
 
+// below div added for digit prediction code  
+<div style="margin: 20px; text-align: center;">
+
+  <input type="file" (change)="onFileSelected($event)" />
+
+  <button mat-raised-button color="accent" (click)="predictDigit()">
+    Predict Digit
+  </button>
+
+  @if (loading) {
+    <p>Processing...</p>
+  } @else if (prediction !== null) {
+    <h3>Predicted Digit: {{ prediction }}</h3>
+  } @else {
+    <p>Please upload an image to predict.</p>
+  }
+
+</div>
+
 </mat-toolbar>
 
 
