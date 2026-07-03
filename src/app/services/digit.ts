@@ -16,7 +16,8 @@ import { Observable } from 'rxjs';
 })
 export class Digit {
 
-  private apiUrl = 'http://localhost:8000/predict'; // FastAPI URL
+  //private apiUrl = 'http://localhost:8000/predict'; // FastAPI URL
+  private apiUrl = 'http://localhost:8080/api/predict';  // ✅ FIX
   //private http = inject(HttpClient)
 
   constructor(private http: HttpClient) { }

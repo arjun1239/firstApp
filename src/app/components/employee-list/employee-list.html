@@ -63,7 +63,7 @@
 
 </mat-menu> -->
 
-// below div added for digit prediction code  
+ <!-- below div added for digit prediction code   -->
 <div style="margin: 20px; text-align: center;">
 
   <input type="file" (change)="onFileSelected($event)" />
@@ -74,10 +74,11 @@
 
   @if (loading) {
     <p>Processing...</p>
-  } @else if (prediction !== null) {
+  } 
+  @if (prediction !== null) {
     <h3>Predicted Digit: {{ prediction }}</h3>
-  } @else {
-    <p>Please upload an image to predict.</p>
+  }@else {
+    <p>Please upload an image above to predict.</p>
   }
 
 </div>

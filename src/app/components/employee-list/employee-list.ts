@@ -87,6 +87,13 @@ predictDigit() {
   this.digitService.predictDigit(this.selectedFile)
     .subscribe({
       next: (res) => {
+
+        // Added these two lines below 
+        console.log("RAW RESPONSE:", res);
+        const parsed = typeof res === 'string' ? JSON.parse(res) : res;
+
+
+
         this.prediction = res.digit;
         this.loading = false;
       },
